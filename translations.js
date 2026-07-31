@@ -94,18 +94,18 @@ export const translations = {
     phase1_title: 'Assessment, Coordination & Technical Preparation',
     phase1_status: 'Active Focus',
     phase1_items: ["environmental documentation", "drainage assessment", "technical consultations", "preliminary bridge planning", "mobility assessment", "institutional coordination", "administrative preparation", "operational structuring", "community engagement"],
-    phase1_time: 'MAY — JUNE 2026',
+    phase1_time: 'JULY / AUGUST 2026',
 
     phase2_title: 'Rehabilitation Mobilization & Site Preparation',
     phase2_status: 'Planned',
     phase2_items: ["environmental clearing coordination", "temporary mobility preparation", "municipal logistics coordination", "equipment preparation", "rehabilitation scheduling", "community mobilization support"],
-    phase2_time: 'JULY — AUGUST 2026',
+    phase2_time: 'SEPTEMBER / OCTOBER 2026',
 
     phase3_title: 'Infrastructure Rehabilitation Execution',
     phase3_status: 'Future Implementation',
     phase3_items: ["bridge rehabilitation implementation", "roadway stabilization", "drainage rehabilitation", "erosion mitigation support", "safer mobility improvements"],
     phase3_note: 'Technical implementation activities are expected to involve qualified construction and engineering coordination aligned with public infrastructure safety considerations.',
-    phase3_time: 'SEPTEMBER 2026 — JANUARY 2027',
+    phase3_time: 'NOVEMBER 2026 / MARCH 2027',
 
     phases_donation_statement_label: 'Donation Execution Statement:',
     phases_donation_statement_text: 'SOLMA Foundation is currently focused on early-stage project preparation, documentation, technical coordination, and community mobilization to support long-term infrastructure rehabilitation efforts. Support contributions help sustain operational preparation activities and future implementation readiness.',
@@ -256,18 +256,18 @@ export const translations = {
     phase1_title: 'ÉVALUATION, COORDINATION ET PRÉPARATION TECHNIQUE',
     phase1_status: 'PHASE ACTIVE',
     phase1_items: ["documentation environnementale", "consultations techniques", "évaluation de la mobilité", "démarches administratives", "engagement communautaire", "diagnostic du drainage", "études préliminaires des ponts", "coordination institutionnelle", "structuration opérationnelle"],
-    phase1_time: 'MAI — JUIN 2026',
+    phase1_time: 'JUILLET / AOÛT 2026',
 
     phase2_title: 'MOBILISATION ET PRÉPARATION DU TERRAIN',
     phase2_status: 'PLANIFIÉ',
     phase2_items: ["coordination des opérations de nettoyage", "coordination logistique municipale", "planification des travaux de réhabilitation", "aménagement des voies provisoires", "préparation et déploiement du matériel", "soutien à la mobilisation communautaire"],
-    phase2_time: 'JUILLET — AOÛT 2026',
+    phase2_time: 'SEPTEMBRE / OCTOBRE 2026',
 
     phase3_title: 'EXÉCUTION DES TRAVAUX DE RÉHABILITATION',
     phase3_status: 'MISE EN ŒUVRE ULTÉRIEURE',
     phase3_items: ["exécution de la réhabilitation des ponts", "réhabilitation des réseaux de drainage", "amélioration de la sécurité des déplacements", "stabilisation des voies d’accès", "mesures d’atténuation de l’érosion"],
     phase3_note: 'Les activités d’exécution technique impliquent une coordination rigoureuse du chantier et de l’ingénierie, conformément aux normes de sécurité des infrastructures publiques.',
-    phase3_time: 'SEPTEMBRE 2026 — JANVIER 2027',
+    phase3_time: 'NOVEMBRE 2026 / MARS 2027',
 
     phases_donation_statement_label: 'Déclaration sur l’Exécution des Dons :',
     phases_donation_statement_text: 'La Fondation SOLMA se concentre actuellement sur la phase initiale de préparation du projet, la documentation, la coordination technique et la mobilisation communautaire nécessaires à la réussite des futurs travaux. Chaque contribution permet de soutenir ces activités préparatoires et de renforcer la capacité opérationnelle des prochaines phases de mise en œuvre.',

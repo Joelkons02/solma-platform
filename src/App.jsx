@@ -592,7 +592,7 @@ export default function App() {
                 phase: "Phase 1", 
                 title: t?.phase1_title || "Assessment, Coordination & Technical Preparation", 
                 status: t?.phase1_status || "Active Focus", 
-                timeline: t?.phase1_time || "MAY — JUNE 2026", 
+                timeline: t?.phase1_time || "JULY / AUGUST 2026", 
                 items: t?.phase1_items || ["environmental documentation", "drainage assessment", "technical consultations", "preliminary bridge planning", "mobility assessment", "institutional coordination", "administrative preparation", "operational structuring", "community engagement"], 
                 style: "border-l-[3px] border-solmaBlue bg-warmOffWhite/40" 
               },
@@ -600,7 +600,7 @@ export default function App() {
                 phase: "Phase 2", 
                 title: t?.phase2_title || "Rehabilitation Mobilization & Site Preparation", 
                 status: t?.phase2_status || "Planned", 
-                timeline: t?.phase2_time || "JULY — AUGUST 2026", 
+                timeline: t?.phase2_time || "SEPTEMBER / OCTOBER 2026", 
                 items: t?.phase2_items || ["environmental clearing coordination", "temporary mobility preparation", "municipal logistics coordination", "equipment preparation", "rehabilitation scheduling", "community mobilization support"], 
                 style: "border-l-[3px] border-concreteGray bg-transparent" 
               },
@@ -608,7 +608,7 @@ export default function App() {
                 phase: "Phase 3", 
                 title: t?.phase3_title || "Infrastructure Rehabilitation Execution", 
                 status: t?.phase3_status || "Future Implementation", 
-                timeline: t?.phase3_time || "SEPTEMBER 2026 — JANUARY 2027", 
+                timeline: t?.phase3_time || "NOVEMBER 2026 / MARCH 2027", 
                 items: t?.phase3_items || ["bridge rehabilitation implementation", "roadway stabilization", "drainage rehabilitation", "erosion mitigation support", "safer mobility improvements"], 
                 note: t?.phase3_note || "Technical implementation activities are expected to involve qualified construction and engineering coordination aligned with public infrastructure safety considerations.",
                 style: "border-l-[3px] border-concreteGray bg-transparent" 
