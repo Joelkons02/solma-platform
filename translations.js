@@ -30,6 +30,7 @@ export const translations = {
     about_small_label: 'Institutional Identity',
     about_title: 'About SOLMA Foundation',
     about_p1: 'SOLMA Foundation is a nonprofit community initiative focused on infrastructure rehabilitation, public mobility, drainage restoration, environmental resilience, and civic coordination within vulnerable urban communities.',
+    about_institutional_statement: 'SOLMA Foundation is the public identity of Solution Optimale et Libre pour un Mewoulou Assaini (SOLMA), a nonprofit association registered in Cameroon under registration number 000508/RDA/J06/SAAJP/BAPP. solmafoundation.org is the organization\'s official website.',
     about_p2: 'The current operational focus is the Mewoulou infrastructure rehabilitation initiative in Yaoundé VI.',
     about_p3: 'The organization works through community participation, administrative coordination, engineering consultation, and transparent project planning to support long-term public infrastructure improvement.',
     about_image_caption: 'Mewoulou, Yaoundé VI — April 2026',
@@ -94,18 +95,18 @@ export const translations = {
     phase1_title: 'Assessment, Coordination & Technical Preparation',
     phase1_status: 'Active Focus',
     phase1_items: ["environmental documentation", "drainage assessment", "technical consultations", "preliminary bridge planning", "mobility assessment", "institutional coordination", "administrative preparation", "operational structuring", "community engagement"],
-    phase1_time: 'JULY / AUGUST 2026',
+    phase1_time: 'AUGUST / SEPTEMBER 2026',
 
     phase2_title: 'Rehabilitation Mobilization & Site Preparation',
     phase2_status: 'Planned',
     phase2_items: ["environmental clearing coordination", "temporary mobility preparation", "municipal logistics coordination", "equipment preparation", "rehabilitation scheduling", "community mobilization support"],
-    phase2_time: 'SEPTEMBER / OCTOBER 2026',
+    phase2_time: 'OCTOBER / NOVEMBER 2026',
 
     phase3_title: 'Infrastructure Rehabilitation Execution',
     phase3_status: 'Future Implementation',
     phase3_items: ["bridge rehabilitation implementation", "roadway stabilization", "drainage rehabilitation", "erosion mitigation support", "safer mobility improvements"],
     phase3_note: 'Technical implementation activities are expected to involve qualified construction and engineering coordination aligned with public infrastructure safety considerations.',
-    phase3_time: 'NOVEMBER 2026 / MARCH 2027',
+    phase3_time: 'DECEMBER 2026 / MARCH 2027',
 
     phases_donation_statement_label: 'Donation Execution Statement:',
     phases_donation_statement_text: 'SOLMA Foundation is currently focused on early-stage project preparation, documentation, technical coordination, and community mobilization to support long-term infrastructure rehabilitation efforts. Support contributions help sustain operational preparation activities and future implementation readiness.',
@@ -158,6 +159,7 @@ export const translations = {
     form_message_placeholder: 'Type your official communication content here...',
 
     footer_tagline: 'Community-centered infrastructure rehabilitation and environmental mobility resilience initiative.',
+    footer_official_website: 'Official website: solmafoundation.org',
     footer_copyright: '© 2026 SOLMA Foundation. All rights reserved.',
     nav_donate: 'Donate'
   },
@@ -192,6 +194,7 @@ export const translations = {
     about_small_label: 'IDENTITÉ INSTITUTIONNELLE',
     about_title: 'À propos de la Fondation SOLMA',
     about_p1: 'La Fondation SOLMA est une initiative communautaire à but non lucratif dédiée à la réhabilitation des infrastructures, à l’amélioration de la mobilité publique, à la restauration du drainage, à la résilience environnementale et à la coordination civique au sein des communautés urbaines vulnérables.',
+    about_institutional_statement: 'La Fondation SOLMA est l’identité publique de Solution Optimale et Libre pour un Mewoulou Assaini (SOLMA), une association à but non lucratif enregistrée au Cameroun sous le numéro 000508/RDA/J06/SAAJP/BAPP. solmafoundation.org est le site officiel de l’organisation.',
     about_p2: 'Son action opérationnelle actuelle porte principalement sur l’initiative de réhabilitation des infrastructures de Mewoulou, à Yaoundé VI.',
     about_p3: 'L’organisation déploie son action à travers la participation communautaire, la coordination administrative, l’expertise en ingénierie et une planification transparente des projets, afin de soutenir l’amélioration durable des infrastructures publiques.',
     about_image_caption: 'MEWOULOU, YAOUNDÉ VI — AVRIL 2026',
@@ -256,18 +259,18 @@ export const translations = {
     phase1_title: 'ÉVALUATION, COORDINATION ET PRÉPARATION TECHNIQUE',
     phase1_status: 'PHASE ACTIVE',
     phase1_items: ["documentation environnementale", "consultations techniques", "évaluation de la mobilité", "démarches administratives", "engagement communautaire", "diagnostic du drainage", "études préliminaires des ponts", "coordination institutionnelle", "structuration opérationnelle"],
-    phase1_time: 'JUILLET / AOÛT 2026',
+    phase1_time: 'AOÛT / SEPTEMBRE 2026',
 
     phase2_title: 'MOBILISATION ET PRÉPARATION DU TERRAIN',
     phase2_status: 'PLANIFIÉ',
     phase2_items: ["coordination des opérations de nettoyage", "coordination logistique municipale", "planification des travaux de réhabilitation", "aménagement des voies provisoires", "préparation et déploiement du matériel", "soutien à la mobilisation communautaire"],
-    phase2_time: 'SEPTEMBRE / OCTOBRE 2026',
+    phase2_time: 'OCTOBRE / NOVEMBRE 2026',
 
     phase3_title: 'EXÉCUTION DES TRAVAUX DE RÉHABILITATION',
     phase3_status: 'MISE EN ŒUVRE ULTÉRIEURE',
     phase3_items: ["exécution de la réhabilitation des ponts", "réhabilitation des réseaux de drainage", "amélioration de la sécurité des déplacements", "stabilisation des voies d’accès", "mesures d’atténuation de l’érosion"],
     phase3_note: 'Les activités d’exécution technique impliquent une coordination rigoureuse du chantier et de l’ingénierie, conformément aux normes de sécurité des infrastructures publiques.',
-    phase3_time: 'NOVEMBRE 2026 / MARS 2027',
+    phase3_time: 'DÉCEMBRE 2026 / MARS 2027',
 
     phases_donation_statement_label: 'Déclaration sur l’Exécution des Dons :',
     phases_donation_statement_text: 'La Fondation SOLMA se concentre actuellement sur la phase initiale de préparation du projet, la documentation, la coordination technique et la mobilisation communautaire nécessaires à la réussite des futurs travaux. Chaque contribution permet de soutenir ces activités préparatoires et de renforcer la capacité opérationnelle des prochaines phases de mise en œuvre.',
@@ -320,6 +323,7 @@ export const translations = {
     contact_form_message_placeholder: 'Rédigez votre communication officielle ici...',
 
     footer_tagline: 'Initiative de réhabilitation des infrastructures communautaires et de résilience de la mobilité environnementale.',
+    footer_official_website: 'Site officiel : solmafoundation.org',
     footer_copyright: '© 2026 FONDATION SOLMA. TOUS DROITS RÉSERVÉS.',
     nav_donate: 'SOUTENIR'
   }
