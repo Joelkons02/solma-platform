@@ -104,20 +104,173 @@ const VideoModal = ({ isOpen, onClose, videoId, closeText = "Close" }) => {
   );
 };
 
+const LanguagePrompt = ({ isOpen, onSelect, t }) => {
+  if (!isOpen) return null;
+  return (
+    <AnimatePresence>
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-deepCharcoal/35 p-4 backdrop-blur-sm">
+        <motion.div
+          initial={{ opacity: 0, y: 18, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 18, scale: 0.98 }}
+          className="w-full max-w-md bg-white p-8 md:p-10 rounded-[18px] border border-concreteGray/80 shadow-2xl text-center"
+        >
+          <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-solmaBlue block mb-3">
+            {t?.language_prompt_label || "Language / Langue"}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-deepCharcoal mb-4">
+            {t?.language_prompt_title || "Choose your preferred language"}
+          </h2>
+          <p className="text-textSecondary text-sm leading-[1.8] mb-8">
+            {t?.language_prompt_text || "Choisissez votre langue preferee."}
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <button
+              onClick={() => onSelect('en')}
+              className="bg-deepCharcoal text-white text-[12px] font-bold uppercase tracking-widest py-4 rounded hover:bg-solmaBlue transition-all shadow-sm"
+            >
+              English
+            </button>
+            <button
+              onClick={() => onSelect('fr')}
+              className="bg-warmOffWhite text-deepCharcoal border border-concreteGray/80 text-[12px] font-bold uppercase tracking-widest py-4 rounded hover:border-solmaBlue hover:text-solmaBlue transition-all"
+            >
+              Francais
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </AnimatePresence>
+  );
+};
+
+const CampaignInterestModal = ({
+  isOpen,
+  onClose,
+  t,
+  formData,
+  setFormData,
+  formStatus,
+  onSubmit
+}) => {
+  if (!isOpen) return null;
+  return (
+    <AnimatePresence>
+      <div className="fixed inset-0 z-50 flex items-start md:items-center justify-center bg-deepCharcoal/35 p-3 md:p-8 backdrop-blur-sm overflow-y-auto">
+        <div className="absolute inset-0 cursor-pointer" onClick={onClose} />
+        <motion.div
+          initial={{ opacity: 0, y: 18, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 18, scale: 0.98 }}
+          className="relative z-10 w-full max-w-2xl bg-white p-6 md:p-10 rounded-[18px] border border-concreteGray/80 shadow-2xl my-3 md:my-0 max-h-[calc(100vh-1.5rem)] overflow-y-auto"
+        >
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-deepCharcoal/50 hover:text-deepCharcoal transition-colors p-2"
+            aria-label={t?.modal_close || "Close"}
+          >
+            <svg className="w-5 h-5 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+
+          {formStatus === 'success' ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="flex flex-col items-center justify-center py-8 text-center space-y-4"
+            >
+              <div className="w-16 h-16 rounded-full bg-solmaBlue/10 flex items-center justify-center text-solmaBlue mb-2">
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-deepCharcoal">{t?.campaign_success_title || "You're on the launch list"}</h3>
+              <p className="text-sm text-textSecondary max-w-sm">{t?.campaign_success_msg || "Thank you. SOLMA will contact you when the funding campaign launches."}</p>
+              <button onClick={onClose} className="mt-4 text-[11px] font-bold uppercase tracking-widest text-solmaBlue hover:text-deepCharcoal transition-colors">
+                {t?.modal_close || "Close"}
+              </button>
+            </motion.div>
+          ) : (
+            <>
+              <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-solmaBlue block mb-3">
+                {t?.campaign_small_label || "Funding Campaign"}
+              </span>
+              <h2 className="text-[24px] md:text-[36px] font-bold tracking-tight text-deepCharcoal leading-tight mb-4 pr-8">
+                {t?.campaign_title || "Funding campaign starts very soon"}
+              </h2>
+              <p className="text-textSecondary leading-[1.8] text-sm md:text-base font-normal mb-8">
+                {t?.campaign_intro || "Leave your contact details and SOLMA will reach out when the Mewoulou infrastructure rehabilitation funding campaign is launched."}
+              </p>
+              <form onSubmit={onSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="flex flex-col gap-2.5">
+                    <label className="text-[11px] font-bold tracking-widest uppercase text-deepCharcoal/80">{t?.form_name_label || "Full Name"}</label>
+                    <input required type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="p-4 border border-concreteGray/80 rounded bg-warmOffWhite/20 text-sm outline-none focus:border-solmaBlue transition-colors" placeholder={t?.form_name_placeholder || "Enter your full identity details..."} />
+                  </div>
+                  <div className="flex flex-col gap-2.5">
+                    <label className="text-[11px] font-bold tracking-widest uppercase text-deepCharcoal/80">{t?.form_email_label || "Email Address"}</label>
+                    <input required type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="p-4 border border-concreteGray/80 rounded bg-warmOffWhite/20 text-sm outline-none focus:border-solmaBlue transition-colors" placeholder={t?.form_email_placeholder || "Enter your contact vector..."} />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="flex flex-col gap-2.5">
+                    <label className="text-[11px] font-bold tracking-widest uppercase text-deepCharcoal/80">{t?.campaign_phone_label || "Phone / WhatsApp"}</label>
+                    <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="p-4 border border-concreteGray/80 rounded bg-warmOffWhite/20 text-sm outline-none focus:border-solmaBlue transition-colors" placeholder={t?.campaign_phone_placeholder || "Optional contact number..."} />
+                  </div>
+                  <div className="flex flex-col gap-2.5">
+                    <label className="text-[11px] font-bold tracking-widest uppercase text-deepCharcoal/80">{t?.campaign_language_label || "Preferred Language"}</label>
+                    <select value={formData.preferredLanguage} onChange={(e) => setFormData({...formData, preferredLanguage: e.target.value})} className="p-4 border border-concreteGray/80 rounded bg-warmOffWhite/20 text-sm outline-none focus:border-solmaBlue transition-colors">
+                      <option value="English">English</option>
+                      <option value="Francais">Francais</option>
+                    </select>
+                  </div>
+                </div>
+                <button disabled={formStatus === 'submitting'} type="submit" className="w-full bg-deepCharcoal text-white text-[12px] font-bold uppercase tracking-widest py-4 rounded hover:bg-solmaBlue disabled:opacity-70 disabled:cursor-not-allowed transition-all shadow-sm">
+                  {formStatus === 'submitting' ? (t?.campaign_submitting || 'Saving Contact...') : (t?.campaign_submit || 'Notify Me At Launch')}
+                </button>
+              </form>
+            </>
+          )}
+        </motion.div>
+      </div>
+    </AnimatePresence>
+  );
+};
+
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeModalId, setActiveModalId] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [campaignModalOpen, setCampaignModalOpen] = useState(false);
+  const [showLanguagePrompt, setShowLanguagePrompt] = useState(false);
   
   // --- LANGUAGE STATE TRACKING ---
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState(() => {
+    if (typeof window === 'undefined') return 'en';
+    return localStorage.getItem('solma-language') || 'en';
+  });
   const t = translations[language] || translations['en'];
 
-  const toggleLanguage = () => setLanguage((lang) => (lang === 'en' ? 'fr' : 'en'));
+  const setLanguagePreference = (nextLanguage) => {
+    setLanguage(nextLanguage);
+    localStorage.setItem('solma-language', nextLanguage);
+    setShowLanguagePrompt(false);
+  };
+
+  const toggleLanguage = () => setLanguagePreference(language === 'en' ? 'fr' : 'en');
 
   // --- FORM STATE MANAGEMENT ---
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formStatus, setFormStatus] = useState('idle'); // 'idle' | 'submitting' | 'success'
+  const [campaignFormData, setCampaignFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    preferredLanguage: 'English'
+  });
+  const [campaignFormStatus, setCampaignFormStatus] = useState('idle');
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -152,6 +305,47 @@ export default function App() {
     }
   };
 
+  const handleCampaignSubmit = async (e) => {
+    e.preventDefault();
+    setCampaignFormStatus('submitting');
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "1b44b13c-2b74-4af8-bf8d-55c5e5f59c70",
+          name: campaignFormData.name,
+          email: campaignFormData.email,
+          phone: campaignFormData.phone,
+          preferred_language: campaignFormData.preferredLanguage,
+          message: `Funding campaign launch interest\nName: ${campaignFormData.name}\nEmail: ${campaignFormData.email}\nPhone/WhatsApp: ${campaignFormData.phone || 'Not provided'}\nPreferred language: ${campaignFormData.preferredLanguage}`,
+          subject: "New SOLMA Funding Campaign Interest"
+        }),
+      });
+
+      if (response.ok) {
+        setCampaignFormStatus('success');
+        setCampaignFormData({ name: '', email: '', phone: '', preferredLanguage: language === 'fr' ? 'Francais' : 'English' });
+
+        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', {
+            send_to: 'AW-18358094035/N0qBCNLW1_wcENOR6bFE'
+          });
+        }
+      } else {
+        setCampaignFormStatus('idle');
+        alert("Message routing failed. Please verify your connection and try again.");
+      }
+    } catch (error) {
+      setCampaignFormStatus('idle');
+      alert("Network error. Please check your connection and try again.");
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -159,6 +353,25 @@ export default function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!localStorage.getItem('solma-language')) {
+      setShowLanguagePrompt(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    setCampaignFormData((current) => ({
+      ...current,
+      preferredLanguage: language === 'fr' ? 'Francais' : 'English'
+    }));
+  }, [language]);
+
+  const openCampaignModal = () => {
+    setCampaignFormStatus('idle');
+    setCampaignModalOpen(true);
+    setMobileMenuOpen(false);
+  };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -216,14 +429,12 @@ export default function App() {
           <div className="flex items-center gap-4">
 
             <div className="hidden md:flex items-center">
-              <a 
-                href="https://chuffed.org" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <button 
+                onClick={openCampaignModal}
                 className="bg-solmaBlue text-white text-[13px] font-semibold tracking-wider uppercase px-7 py-3 rounded-full hover:bg-solmaBlue/90 transition-all shadow-sm"
               >
                 {t?.support_project || t?.support_initiative || "Support The Project"}
-              </a>
+              </button>
             </div>
 
             <button 
@@ -262,14 +473,12 @@ export default function App() {
               >
                 {t?.mobile_lang_toggle || "Français"}
               </button>
-              <a 
-                href="https://chuffed.org" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <button 
+                onClick={openCampaignModal}
                 className="bg-solmaBlue text-white text-center text-sm font-semibold tracking-wider uppercase py-4 px-8 rounded-full w-full md:hidden sm:w-max sm:self-center"
               >
                 {t?.support_project || t?.support_initiative || "Support The Project"}
-              </a>
+              </button>
             </motion.div>
           )}
         </AnimatePresence>
@@ -300,14 +509,12 @@ export default function App() {
                 {t?.hero_paragraph || "SOLMA Foundation is coordinating a community-driven infrastructure rehabilitation initiative focused on drainage restoration, bridge reconstruction, road safety, and public mobility resilience in Mewoulou, Yaoundé VI."}
               </p>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <a 
-                  href="https://chuffed.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button 
+                  onClick={openCampaignModal}
                   className="bg-solmaBlue text-white font-semibold text-[13px] tracking-wider uppercase px-8 py-4 rounded-full text-center hover:bg-solmaBlue/90 transition-all shadow-lg"
                 >
                   {t?.support_initiative || "Support the Initiative"}
-                </a>
+                </button>
                 <button 
                   onClick={() => setActiveModalId(videoIds.docEvidence)}
                   className="bg-white/10 border border-white/30 text-white font-semibold text-[13px] tracking-wider uppercase px-8 py-4 rounded-full text-center hover:bg-white/20 transition-all backdrop-blur-md"
@@ -888,21 +1095,18 @@ export default function App() {
             {['about', 'project', 'governance', 'contact'].map((link) => (
               <button key={link} onClick={() => scrollToSection(link)} className="hover:text-concreteGray/60 transition-colors">{t?.[`nav_${link}`] || link}</button>
             ))}
-            <a href="https://chuffed.org" target="_blank" rel="noopener noreferrer" className="hover:text-concreteGray/60 transition-colors">{t?.nav_donate || "Donate"}</a>
+            <button onClick={openCampaignModal} className="hover:text-concreteGray/60 transition-colors">{t?.nav_donate || "Donate"}</button>
           </div>
 
           {/* Scaled Social Logos */}
           <div className="flex items-center justify-center gap-8 mb-16">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
-              <img src="/images/InBug-White.png" alt="LinkedIn" className="h-6 md:h-7 object-contain" />
-            </a>
-            <a href="https://www.youtube.com/@Solmafoundation" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
+            <a href="https://youtube.com/@solmafoundation?si=MXDNV8xvs9T9GwkK" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
               <img src="/images/yt_icon_white_digital.png" alt="YouTube" className="h-6 md:h-7 object-contain" />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
+            <a href="https://www.facebook.com/share/1CDcUKbV9e/" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
               <img src="/images/Facebook_Logo_Secondary.png" alt="Facebook" className="h-6 md:h-7 object-contain" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
+            <a href="https://www.instagram.com/solmafoundation_?stkn=MTY1cngxMDVyeWJhNw==" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
               <img src="/images/Instagram_Glyph_White.png" alt="Instagram" className="h-6 md:h-7 object-contain" />
             </a>
           </div>
@@ -943,6 +1147,22 @@ export default function App() {
         onClose={() => setActiveModalId(null)} 
         videoId={activeModalId} 
         closeText={t?.modal_close || "Close"}
+      />
+
+      <CampaignInterestModal
+        isOpen={campaignModalOpen}
+        onClose={() => setCampaignModalOpen(false)}
+        t={t}
+        formData={campaignFormData}
+        setFormData={setCampaignFormData}
+        formStatus={campaignFormStatus}
+        onSubmit={handleCampaignSubmit}
+      />
+
+      <LanguagePrompt
+        isOpen={showLanguagePrompt}
+        onSelect={setLanguagePreference}
+        t={t}
       />
 
       {/* FLOATING LANGUAGE TOGGLE SWITCH */}
